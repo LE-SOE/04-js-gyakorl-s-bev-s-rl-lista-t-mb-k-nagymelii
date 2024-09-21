@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bevásárlólista</title>
+    <script>
+        function hozzaad() {
+            let adat = document.getElementById("adat").value;
+            if (adat === "") {
+                alert("Kérlek adj meg egy elemet!");
+                return;
+            }
+            let lista = document.getElementById("lista");
+            let elem = document.createElement("li");
+
+            elem.innerHTML = adat + ' <button onclick="eltavolit">Eltávolít</button>';
+            lista.appendChild(elem);
+
+            document.getElementById("adat").value = "";
+        }
+
+        function eltavolit(button) {
+            let listaElem = button.parentElement;
+            listaElem.remove();
+        }
+    </script>
+</head>
+<body>
+    <h1>Bevásárlólista</h1>
+    <input id="adat" placeholder="Add meg az elemet">
+    <button onclick="hozzaad()">Hozzáad</button>
+    <ul id="lista">
+        Amire szükség van:
+    </ul>
+</body>
+</html>
